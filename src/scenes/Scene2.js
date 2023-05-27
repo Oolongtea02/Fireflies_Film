@@ -5,12 +5,12 @@ class Scene2 extends Phaser.Scene {
 
     preload() {
         this.load.image('fireflies', './assets/fireflies_bg.png');
-        this.load.audio('grave', './assets/music/grave_fireflies_bg.png');
+        this.load.audio('grave', './assets/music/fireflies_bgm.mp3');
     }
 
     create() {
         this.add.image(0, 0, 'fireflies').setOrigin(0, 0);
-        
+
     }
 
     update() {
