@@ -1,5 +1,5 @@
 let config = ({
-    type: Phaser.AUTO,
+    type: Phaser.CANVAS,
     width: 680,
     height: 750,
     scene: [Scene2],
@@ -7,11 +7,12 @@ let config = ({
         default: 'arcade',
         arcade: {
             gravity: {
-                y: -200
+                y: 200
             },
             debug: true
         }
     }
-})
+}) 
 
 let game = new Phaser.Game(config);
+
