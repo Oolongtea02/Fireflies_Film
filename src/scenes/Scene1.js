@@ -8,9 +8,12 @@ class Scene1 extends Phaser.Scene {
     }
 
     create() {
-        this.sound.play('happyAudio', {loop: false, volume: 0.1});
+        this.music = this.sound.play('happyAudio', {loop: false, volume: 0.1});
 
         const startScene = new Button(525, 380, 'Scene 2', this, () => this.scene.start('Scene2'));
+        if(startScene == true) {
+            this.music.pause();
+        }
 
     }
 
