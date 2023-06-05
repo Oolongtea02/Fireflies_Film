@@ -41,6 +41,15 @@ class Scene2 extends Phaser.Scene {
         this.carrotsCollectedText = this.add.text(240, 10, 'Fireflies: 0', { color: '#ffffff', fontSize: 24 })
 			.setScrollFactor(0)
 			.setOrigin(0.5, 0)
+        
+        this.add.particles(0, 0, 'flares', {speed: this.SPEED})
+        this.input.on('pointerdown', (pointer) => {
+            this.add.particles(pointer.x, pointer.y, 'flares', {
+                speed: Phaser.Math.Between(this.SPEEDMIN, this.SPEEDMAX),
+                tint: Math.random() * 0xFFFFFF,
+                alpha: Phaser.Math.FloatBetween(0.25, 1)
+            })
+        })
     }
 
     update() {
@@ -65,7 +74,8 @@ class Scene2 extends Phaser.Scene {
 		this.firefliesCollectedText.text = `Fireflies: ${this.firefliesCollected};`
 	}
 
-    fireflyCaught(firefly) {
+    
+    /* fireflyCaught(firefly) {
         this.emitter = this.add.particles(400, 250, 'flares', {
             frame: [ 'red', 'yellow', 'green' ],
             lifespan: 1000,
@@ -74,6 +84,6 @@ class Scene2 extends Phaser.Scene {
             gravityY: 150,
             blendMode: 'ADD',
             emitting: true
-        });
-    }
+        }); 
+    } */
 }
