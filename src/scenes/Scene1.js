@@ -9,6 +9,8 @@ class Scene1 extends Phaser.Scene {
         this.load.audio('happyAudio', './assets/music/firstaudio.mp3');
         this.load.image('background1', './assets/scene1background.jpeg');
         this.load.image('fruitd', './assets/fruitDrops.png');
+        this.load.image('girl', './assets/girl.png');
+
 
     }
 
@@ -27,6 +29,8 @@ class Scene1 extends Phaser.Scene {
         keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
 
         this.fruit1 = new FruitDrop(this, 200, 200, 'fruitd', 0, 30).setOrigin(0, 0);
+        this.fruit2 = new FruitDrop(this, 500, 200, 'fruitd', 0, 30).setOrigin(0, 0);
+        this.fruit3 = new FruitDrop(this, 600, 200, 'fruitd', 0, 30).setOrigin(0, 0);
 
          //Initialize score
          this.p1Score = 0;
@@ -62,7 +66,35 @@ class Scene1 extends Phaser.Scene {
     update() {
 
         if(!this.gameOver){
-        this.fruit1.update();
+            this.fruit1.update();
+            this.fruit2.update();
+            this.fruit3.update();
+        }
+
+         //Check collisions
+         if(this.checkCollision(this.p1Rocket, this.ship03)) {
+            this.p1Rocket.reset();
+            this.shipExplode(this.ship03);
+        }
+        if (this.checkCollision(this.p1Rocket, this.ship02)) {
+            this.p1Rocket.reset();
+            this.shipExplode(this.ship02);
+        }
+        if (this.checkCollision(this.p1Rocket, this.ship01)) {
+            this.p1Rocket.reset();
+            this.shipExplode(this.ship01);
+        }
+    }
+
+    checkCollision(rocket, ship) {
+        //Simple AABB checking
+        if (rocket.x < ship.x + ship.width && 
+            rocket.x + rocket.width > ship.x && 
+            rocket.y < ship.y + ship.height &&
+            rocket.height + rocket.y > ship. y) {
+                return true;
+        } else {
+            return false;
         }
     }
   
