@@ -13,7 +13,7 @@ class Scene1 extends Phaser.Scene {
     }
 
     create() {
-        this.music = this.sound.play('happyAudio', {loop: false, volume: 0.1});
+        //this.music = this.sound.play('happyAudio', {loop: false, volume: 0.1});
 
         this.add.image(0,0, 'background1').setOrigin(0,0);
 

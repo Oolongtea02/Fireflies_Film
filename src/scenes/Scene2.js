@@ -33,6 +33,7 @@ class Scene2 extends Phaser.Scene {
     create() {
         this.add.image(0, 0, 'fireflies').setOrigin(0, 0);
         this.firefly = this.add.sprite(0, 0, 'firefly').setScale(.2).setOrigin(0, 0).setInteractive();
+        this.firefly1 = new Firefly(this, game.config.width/2, game.config.height - borderUISize - borderPadding, 'firefly').setOrigin(0.5, 0);
         this.sound.play('grave', {loop: false, volume: 0.1});
 
         this.mouse = this.input;
