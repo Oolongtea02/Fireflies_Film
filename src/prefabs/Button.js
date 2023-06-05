@@ -2,9 +2,9 @@ class Button {
     constructor(x, y, label, scene, callback) {
         const button = scene.add.text(x, y, label)
             .setOrigin(0.5)
-            .setPadding(0.25)
+            .setPadding(10)
             //.setPadding(10)
-            .setStyle({ backgroundColor: '#bda280' })
+            .setStyle({ backgroundColor: '#ff9933' })
             .setInteractive({ useHandCursor: true })
             .on('pointerdown', () => callback())
             .on('pointerover', () => button.setStyle({ fill: '#f39c12' }))
