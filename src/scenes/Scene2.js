@@ -44,6 +44,7 @@ class Scene2 extends Phaser.Scene {
         
         this.add.particles(0, 0, 'flares', {speed: this.SPEED})
         this.input.on('pointerdown', (pointer) => {
+            this.sound.play('catch');
             this.add.particles(pointer.x, pointer.y, 'flares', {
                 speed: Phaser.Math.Between(this.SPEEDMIN, this.SPEEDMAX),
                 tint: Math.random() * 0xFFFFFF,
@@ -51,6 +52,7 @@ class Scene2 extends Phaser.Scene {
             })
         })
 
+        //borrowed from Nathan Altice 'Scenesters' example
         let timeCount = 60
         let timerText = this.add.text(64, 96, `Time: ${timeCount}`)
         this.time.addEvent({

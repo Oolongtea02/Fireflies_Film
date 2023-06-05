@@ -22,3 +22,6 @@ let borderPadding = borderUISize / 3;
 
 //Reserve keyboard variables
 let keyLEFT, keyRIGHT, keyUP, keyDOWN;
+
+//mouse
+let mouse;
