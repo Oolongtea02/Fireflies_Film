@@ -3,7 +3,9 @@ class Scene1 extends Phaser.Scene {
         super("Scene1");
     }
 
-   preload() {
+    count = 10; 
+    //xCoord = 0;
+    preload() {
         this.load.audio('happyAudio', './assets/music/firstaudio.mp3');
         this.load.image('background1', './assets/scene1background.jpeg');
         this.load.image('fruitd', './assets/fruitDrops.png');

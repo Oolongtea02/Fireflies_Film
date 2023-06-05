@@ -7,6 +7,8 @@ class FruitDrop extends Phaser.GameObjects.Sprite {
     }
 
     update() {
+        let xCoord = Phaser.Math.Between(10, 790);
+        x = xCoord;
         this.y += this.moveSpeed;
 
         if(this.y >= 538) {
