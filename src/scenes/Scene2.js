@@ -50,6 +50,17 @@ class Scene2 extends Phaser.Scene {
                 alpha: Phaser.Math.FloatBetween(0.25, 1)
             })
         })
+
+        let timeCount = 60
+        let timerText = this.add.text(64, 96, `Time: ${timeCount}`)
+        this.time.addEvent({
+            delay: 1000,
+            loop: true,
+            callback: function() {
+                timeCount--
+                timerText.text = `Time: ${timeCount}`
+            }
+        });
     }
 
     update() {
