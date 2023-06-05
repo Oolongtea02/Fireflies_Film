@@ -19,6 +19,9 @@ class Scene1 extends Phaser.Scene {
 
         this.add.image(0,0, 'background1').setOrigin(0,0);
 
+        this.p1 = new Girl(this, 300, 500, 'girl').setOrigin(0, 0);
+
+
         const startScene = new Button(525, 380, 'Scene 2', this, () => this.scene.start('Scene2'));
         if(startScene == true) {
             this.music.pause();
@@ -66,12 +69,13 @@ class Scene1 extends Phaser.Scene {
     update() {
 
         if(!this.gameOver){
+            this.p1.update();
             this.fruit1.update();
             this.fruit2.update();
             this.fruit3.update();
         }
 
-         //Check collisions
+        /* //Check collisions
          if(this.checkCollision(this.p1Rocket, this.ship03)) {
             this.p1Rocket.reset();
             this.shipExplode(this.ship03);
@@ -83,10 +87,10 @@ class Scene1 extends Phaser.Scene {
         if (this.checkCollision(this.p1Rocket, this.ship01)) {
             this.p1Rocket.reset();
             this.shipExplode(this.ship01);
-        }
+        }*/
     }
 
-    checkCollision(rocket, ship) {
+    /*checkCollision(rocket, ship) {
         //Simple AABB checking
         if (rocket.x < ship.x + ship.width && 
             rocket.x + rocket.width > ship.x && 
@@ -96,6 +100,6 @@ class Scene1 extends Phaser.Scene {
         } else {
             return false;
         }
-    }
+    }*/
   
 }
