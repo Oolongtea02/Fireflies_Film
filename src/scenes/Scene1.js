@@ -78,13 +78,17 @@ class Scene1 extends Phaser.Scene {
          //Check collisions
         if(this.checkCollision(this.p1, this.fruit1)) {
             this.fruit1.reset();
+            this.p1Score++;
         }
         if (this.checkCollision(this.p1, this.fruit2)) {
             this.fruit2.reset();
+            this.p1Score++;
         }
         if (this.checkCollision(this.p1, this.fruit3)) {
             this.fruit3.reset();
+            this.p1Score++;
         }
+        this.scoreLeft.text = this.p1Score; 
     }
 
     checkCollision(person, drops) {
