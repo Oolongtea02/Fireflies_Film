@@ -4,6 +4,7 @@ class Scene1 extends Phaser.Scene {
     }
 
     count = 10; 
+
     //xCoord = 0;
     preload() {
         this.load.audio('happyAudio', './assets/music/firstaudio.mp3');
@@ -64,6 +65,7 @@ class Scene1 extends Phaser.Scene {
              this.gameOver = true;
          }, null, this);
 */  
+
     }
 
     update() {
@@ -89,6 +91,7 @@ class Scene1 extends Phaser.Scene {
             this.p1Score++;
         }
         this.scoreLeft.text = this.p1Score; 
+
     }
 
     checkCollision(person, drops) {

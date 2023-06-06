@@ -6,9 +6,13 @@ class FruitDrop extends Phaser.GameObjects.Sprite {
         this.moveSpeed = 1;         // pixels per frame
     }
 
+    create(){
+        this.changePosition();
+    }
+
     update() {
-        let xCoord = Phaser.Math.Between(10, 790);
-        x = xCoord;
+
+        //this.changePosition();
         this.y += this.moveSpeed;
 
         if(this.y >= 538) {
@@ -21,5 +25,10 @@ class FruitDrop extends Phaser.GameObjects.Sprite {
     //Position reset
     reset() {
         this.y = 0;
+    }
+
+    changePosition(){
+        value = Phaser.Math.Between(0, 10);
+        x = value;
     }
 }

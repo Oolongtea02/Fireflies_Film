@@ -29,3 +29,5 @@ let mouse;
 
 //let x = 0;
 let y = 0;
+
+let value = 0;
