@@ -10,9 +10,6 @@ class Scene2 extends Phaser.Scene {
 
 	firefliesCollected = 0
 
-	/** @type {Phaser.GameObjects.Text} */
-	firefliesCollectedText
-
 
     constructor() {
         super('Scene2');
@@ -38,8 +35,13 @@ class Scene2 extends Phaser.Scene {
 
         this.mouse = this.input;
 
+        this.input.on('firefly', this.onFireflyClicked);
+        this.physics.add.overlap(this.setsuko, this.fireflies, this.handleCollectFirefly, undefined, this);
+
+        
+
         //this.click = new Button(0, 0, )
-        this.carrotsCollectedText = this.add.text(240, 10, 'Fireflies: 0', { color: '#ffffff', fontSize: 24 })
+        this.firefliesCollectedText = this.add.text(240, 10, 'Fireflies: 0', { color: '#ffffff', fontSize: 24 })
 			.setScrollFactor(0)
 			.setOrigin(0.5, 0)
         
@@ -70,12 +72,15 @@ class Scene2 extends Phaser.Scene {
 
     }
 
+    onFireflyClicked(pointer, firefly) {
+        firefly.angle += 10;
+    }
     /**
 	 * 
 	 *  
 	 * @param {Firefly} firefly
 	 */
-	handleCollectCarrot(firefly)
+	handleCollectFirefly(firefly)
 	{
 		this.fireflies.killAndHide(firefly);
 

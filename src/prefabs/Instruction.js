@@ -4,9 +4,9 @@ class Instruction extends Phaser.Scene {
     }
 
     create() {
-        const text = this.add.text(100, 180, 'Scene1: Arrowkeys <-> to move left and right', {
+        const text = this.add.text(100, 180, 'Scene1: Arrowkeys <-> to move \n left and right', {
             fontFamily: 'Courier',
-            fontSize: '38px',
+            fontSize: '28px',
             color: '#3c91d6',
             align: 'center',
             padding: {
