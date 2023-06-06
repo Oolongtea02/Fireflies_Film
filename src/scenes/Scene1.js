@@ -19,7 +19,7 @@ class Scene1 extends Phaser.Scene {
 
         this.add.image(0,0, 'background1').setOrigin(0,0);
 
-        this.p1 = new Girl(this, 300, 500, 'girl').setOrigin(0, 0);
+        this.p1 = new Girl(this, 300, 400, 'girl').setOrigin(0, 0);
 
 
         const startScene = new Button(525, 380, 'Scene 2', this, () => this.scene.start('Scene2'));
@@ -75,31 +75,28 @@ class Scene1 extends Phaser.Scene {
             this.fruit3.update();
         }
 
-        /* //Check collisions
-         if(this.checkCollision(this.p1Rocket, this.ship03)) {
-            this.p1Rocket.reset();
-            this.shipExplode(this.ship03);
+         //Check collisions
+        if(this.checkCollision(this.p1, this.fruit1)) {
+            this.fruit1.reset();
         }
-        if (this.checkCollision(this.p1Rocket, this.ship02)) {
-            this.p1Rocket.reset();
-            this.shipExplode(this.ship02);
+        if (this.checkCollision(this.p1, this.fruit2)) {
+            this.fruit2.reset();
         }
-        if (this.checkCollision(this.p1Rocket, this.ship01)) {
-            this.p1Rocket.reset();
-            this.shipExplode(this.ship01);
-        }*/
+        if (this.checkCollision(this.p1, this.fruit3)) {
+            this.fruit3.reset();
+        }
     }
 
-    /*checkCollision(rocket, ship) {
+    checkCollision(person, drops) {
         //Simple AABB checking
-        if (rocket.x < ship.x + ship.width && 
-            rocket.x + rocket.width > ship.x && 
-            rocket.y < ship.y + ship.height &&
-            rocket.height + rocket.y > ship. y) {
+        if (person.x < drops.x + drops.width && 
+            person.x + person.width > drops.x && 
+            person.y < drops.y + drops.height &&
+            person.height + person.y > drops.y) {
                 return true;
         } else {
             return false;
         }
-    }*/
+    }
   
 }
