@@ -2,7 +2,7 @@ let config = {
     type: Phaser.CANVAS,
     width: 800,
     height: 538,
-    scene: [Menu, Instructions1, Scene1, Scene2],
+    scene: [Menu, Instructions1, Scene1, Scene2, Scene3],
     physics: {
 		default: 'arcade',
 		arcade: {
@@ -23,6 +23,8 @@ let borderPadding = borderUISize / 3;
 let x = 0;
 //Reserve keyboard variables
 let keyLEFT, keyRIGHT, keyUP, keyDOWN;
+
+let keyS;
 
 //mouse
 let mouse;

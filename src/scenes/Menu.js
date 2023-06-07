@@ -12,6 +12,9 @@ class Menu extends Phaser.Scene {
       
       const startButton = new Button(525, 380, 'Start Game', this, () => this.scene.start('instruction1Scene'));
       const creditButton = new Button(525, 420, 'Credit Page', this, () => this.scene.start('instructionScene'));
+
+      keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
+
       
       let menuConfig = {
         fontFamily: 'Georgia',
@@ -30,5 +33,9 @@ class Menu extends Phaser.Scene {
     }
 
     update() {
+      if(keyS.isDown) {
+        //console.log('LEFT IS PRESSED YALL');
+        this.scene.start('Scene3')
+    }
     }
 }
