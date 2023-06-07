@@ -11,7 +11,7 @@ class Firefly extends Phaser.Physics.Arcade.Sprite
         super(scene, x, y, texture, frame)
         scene.add.existing(this);
         this.points = pointValue;   // store pointValue
-        this.moveSpeed = 1;         // pixels per frame
+        this.moveSpeed = 3;         // pixels per frame
 
         this.setScale(0.5)
     }
@@ -20,12 +20,12 @@ class Firefly extends Phaser.Physics.Arcade.Sprite
         // move fireflies right
         this.x += this.moveSpeed;
         // wrap around from left edge to right edge
-        if(this.x <= 0 - this.width) {
+        if(this.x > 800) {
             this.reset();
         }
     }
 
     reset() {
-        this.x = game.config.width;
+        this.x = 0;
     }
 }
