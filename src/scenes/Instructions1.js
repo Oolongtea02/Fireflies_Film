@@ -32,6 +32,9 @@ class Instructions1 extends Phaser.Scene {
           this.add.text(400, 200, 'Use arrow keys <-> to move \nSetsuko(the little girl)', subTextConfig).setOrigin(0.5);
           this.add.text(400, 300, 'The more fruit drops you catch, the less hungry she\'ll be!', subTextConfig).setOrigin(0.5);
 
+          const sceneButton = new Button(400, 380, 'Start Scene 1', this, () => this.scene.start('Scene1'));
+
+
 
     }
     
