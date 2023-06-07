@@ -15,7 +15,7 @@ class FruitDrop extends Phaser.GameObjects.Sprite {
         //this.changePosition();
         this.y += this.moveSpeed;
 
-        if(this.y >= 538) {
+        if(this.y >= 450) {
             this.reset();
         }
     
@@ -25,6 +25,8 @@ class FruitDrop extends Phaser.GameObjects.Sprite {
     //Position reset
     reset() {
         this.y = 0;
+        this.x = Phaser.Math.Between(10, 790);
+
     }
 
     changePosition(){

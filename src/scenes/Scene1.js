@@ -23,7 +23,7 @@ class Scene1 extends Phaser.Scene {
         this.p1 = new Girl(this, 300, 400, 'girl').setOrigin(0, 0);
 
 
-        const startScene = new Button(525, 380, 'Scene 2', this, () => this.scene.start('Scene2'));
+        const startScene = new Button(630, 510, 'Scene 2', this, () => this.scene.start('Scene2'));
         if(startScene == true) {
             this.music.pause();
         }
@@ -52,7 +52,7 @@ class Scene1 extends Phaser.Scene {
             },
             fixedWidth: 100
         }
-        this.scoreLeft = this.add.text(borderUISize + borderPadding, borderUISize + borderPadding*2, this.p1Score, scoreConfig);
+        this.scoreLeft = this.add.text(30, 10, this.p1Score, scoreConfig);
 
         //GAME OVER flag
         this.gameOver = false;
