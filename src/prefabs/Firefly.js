@@ -12,6 +12,8 @@ class Firefly extends Phaser.Physics.Arcade.Sprite
         scene.add.existing(this);
         this.points = pointValue;   // store pointValue
         this.moveSpeed = 3;         // pixels per frame
+        this.setInteractive({ useHandCursor: true })
+        this.on('pointerdown', () => callback())
 
         this.setScale(0.5)
     }

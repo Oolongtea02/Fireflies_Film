@@ -48,13 +48,7 @@ class Scene2 extends Phaser.Scene {
 
         this.click = this.input.on('firefly', this.onFireflyClicked);
         
-
-        this.physics.add.overlap(this.setsuko, this.fireflies, this.handleCollectFirefly, undefined, this);
-
-        //this.p1 = new Boy(this, 300, 400, 'boy').setScale(.3).setOrigin(0, 0);
-
-        keyUP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
-        keyDOWN = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
+        //this.physics.add.overlap(this.setsuko, this.fireflies, this.handleCollectFirefly, undefined, this);
 
         //this.click = new Button(0, 0, )
         this.firefliesCollectedText = this.add.text(140, 10, 'Fireflies', { color: '#ffffff', fontSize: 24 })
