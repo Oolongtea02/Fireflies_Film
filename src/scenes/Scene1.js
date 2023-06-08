@@ -23,7 +23,7 @@ class Scene1 extends Phaser.Scene {
         this.p1 = new Girl(this, 300, 400, 'girl').setOrigin(0, 0);
 
 
-        const startScene = new Button(630, 510, 'Scene 2', this, () => this.scene.start('Scene2'));
+        const startScene = new Button(630, 510, 'Next', this, () => this.scene.start('instruction2Scene'));
         if(startScene == true) {
             this.music.pause();
         }
