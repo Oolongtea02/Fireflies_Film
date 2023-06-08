@@ -5,7 +5,7 @@ class Scene3 extends Phaser.Scene {
 
       //xCoord = 0;
     preload() {
-    this.load.image('background3', './assets/scene1background.jpeg');
+    this.load.image('background3', './assets/scene3background.jpeg');
     this.load.image('girl', './assets/girl.png');
 
     }
@@ -13,7 +13,7 @@ class Scene3 extends Phaser.Scene {
     create() {
         //this.music = this.sound.play('happyAudio', {loop: false, volume: 0.1});
 
-        this.add.image(0,0, 'background3').setOrigin(0,0);
+        this.add.image(50,50, 'background3').setOrigin(0,0);
 
 
         const foodItem = new Food(630, 510, 'girl', this, () => console.log("Girl is pressed"));
