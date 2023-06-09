@@ -7,7 +7,7 @@ class Scene3 extends Phaser.Scene {
     preload() {
     this.load.image('background3', './assets/scene3background.jpeg');
     //this.load.image('corn', './assets/corn.jpeg');
-    this.load.image('pot', './assets/ricePot.png');
+    //this.load.image('cookingPot', 'pot.png');
     //this.load.image('bowl', 'rice_bowl.jpeg');
     //this.load.image('green', 'greenonion.png');
     
@@ -18,12 +18,13 @@ class Scene3 extends Phaser.Scene {
 
         this.add.image(0, 0, 'background3').setOrigin(0,0);
 
-        const cP = new Food(400, 300, 'pot', this, () => console.log("Girl is pressed"));
+        const P = new Food(400, 300, 'pot', this, () => console.log("Girl is pressed"));
 
-        /*const cP = new Food(630, 400, 'cookingPot', this, () => console.log("Girl is pressed"));
+        const cP = new Food(630, 400, 'cookingPot', this, () => console.log("Girl is pressed"));
         const cN = new Food(630, 300, 'corn', this, () => console.log("Girl is pressed"));
         const gO= new Food(630, 500, 'green', this, () => console.log("Girl is pressed"));
-        const bL = new Food(630, 610, 'bowl', this, () => console.log("Girl is pressed"));*/
+        const bL = new Food(630, 610, 'bowl', this, () => console.log("Girl is pressed"));
+        const fbL = new Food(630, 700, 'fullbowl', this, () => console.log("Girl is pressed"));
 
 
 
