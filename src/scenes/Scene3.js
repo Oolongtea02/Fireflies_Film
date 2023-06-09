@@ -3,6 +3,7 @@ class Scene3 extends Phaser.Scene {
         super("Scene3");
     }
 
+    count = 0;
       //xCoord = 0;
     preload() {
     this.load.image('background3', './assets/scene3background.jpeg');
@@ -18,13 +19,12 @@ class Scene3 extends Phaser.Scene {
 
         this.add.image(0, 0, 'background3').setOrigin(0,0);
 
-        const P = new Food(400, 300, 'pot', this, () => console.log("Girl is pressed"));
+        const cP = new Food(400, 300, 'pot', this, () => console.log("Girl is pressed"));
 
         const cP = new Food(630, 400, 'cookingPot', this, () => console.log("Girl is pressed"));
         const cN = new Food(630, 300, 'corn', this, () => console.log("Girl is pressed"));
         const gO= new Food(630, 500, 'green', this, () => console.log("Girl is pressed"));
-        const bL = new Food(630, 610, 'bowl', this, () => console.log("Girl is pressed"));
-        const fbL = new Food(630, 700, 'fullbowl', this, () => console.log("Girl is pressed"));
+        const bL = new Food(630, 610, 'bowl', this, () => console.log("Girl is pressed"));*/
 
 
 
