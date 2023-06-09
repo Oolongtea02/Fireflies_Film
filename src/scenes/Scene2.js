@@ -34,7 +34,7 @@ class Scene2 extends Phaser.Scene {
         
         this.sound.play('grave', {loop: false, volume: 0.1});
 
-        const startScene1 = new Button(630, 510, 'Scene 3', this, () => this.scene.start('Scene3'));
+        const startScene1 = new Button(630, 510, 'Scene 2.5', this, () => this.scene.start('Scene2_5'));
 
 
         this.firefly1 = new Firefly(this, 500, 300, 'firefly').setScale(.2).setOrigin(0.5, 0)

@@ -9,5 +9,8 @@ class Scene2_5 extends Phaser.Scene {
 
     create() {
         this.add.image(0, 0, 'bury').setOrigin(0, 0);
+
+        const startScene2 = new Button(630, 510, 'Next', this, () => this.scene.start('instruction3Scene'));
+
     }
 }
