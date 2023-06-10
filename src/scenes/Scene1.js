@@ -11,12 +11,13 @@ class Scene1 extends Phaser.Scene {
         this.load.image('background1', './assets/scene1background.jpeg');
         this.load.image('fruitd', './assets/fruitDrops.png');
         this.load.image('girl', './assets/girl.png');
+        this.load.audio('fruitdrop', './assets/music/fruit_drop.wav');
 
 
     }
 
     create() {
-        //this.music = this.sound.play('happyAudio', {loop: false, volume: 0.1});
+        this.sound.play('happyAudio', {loop: false, volume: 0.1});
 
         this.add.image(0,0, 'background1').setOrigin(0,0);
 
@@ -24,9 +25,7 @@ class Scene1 extends Phaser.Scene {
 
 
         const startScene = new Button(630, 510, 'Next', this, () => this.scene.start('instruction2Scene'));
-        if(startScene == true) {
-            this.music.pause();
-        }
+        
 
         //Keyboard Mechanics
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
@@ -79,14 +78,17 @@ class Scene1 extends Phaser.Scene {
 
          //Check collisions
         if(this.checkCollision(this.p1, this.fruit1)) {
+            this.music = this.sound.play('fruitdrop');
             this.fruit1.reset();
             this.p1Score++;
         }
         if (this.checkCollision(this.p1, this.fruit2)) {
+            this.music = this.sound.play('fruitdrop');
             this.fruit2.reset();
             this.p1Score++;
         }
         if (this.checkCollision(this.p1, this.fruit3)) {
+            this.music = this.sound.play('fruitdrop');
             this.fruit3.reset();
             this.p1Score++;
         }
