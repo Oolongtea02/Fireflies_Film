@@ -1,6 +1,6 @@
-class Instruction extends Phaser.Scene {
+class Credits extends Phaser.Scene {
     constructor() {
-        super('instructionScene');
+        super('creditScene');
     }
 
     create() {

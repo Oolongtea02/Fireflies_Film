@@ -11,7 +11,7 @@ class Menu extends Phaser.Scene {
       this.add.image(0,0, 'menuBackdrop').setOrigin(0,0);
       
       const startButton = new Button(525, 380, 'Start Game', this, () => this.scene.start('instruction1Scene'));
-      const creditButton = new Button(525, 420, 'Credit Page', this, () => this.scene.start('instructionScene'));
+      const creditButton = new Button(525, 420, 'Credit Page', this, () => this.scene.start('creditScene'));
 
       keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
 
