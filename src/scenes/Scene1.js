@@ -3,7 +3,7 @@ class Scene1 extends Phaser.Scene {
         super("Scene1");
     }
 
-    count = 10; 
+    count = 20; 
 
     //xCoord = 0;
     preload() {
@@ -23,7 +23,9 @@ class Scene1 extends Phaser.Scene {
 
         this.p1 = new Girl(this, 300, 400, 'girl').setOrigin(0, 0);
 
-
+        game.settings = {
+            gameTimer: 45000
+        }
         const startScene = new Button(630, 510, 'Next', this, () => this.scene.start('instruction2Scene'));
         
 
@@ -51,19 +53,19 @@ class Scene1 extends Phaser.Scene {
             },
             fixedWidth: 100
         }
-        this.scoreLeft = this.add.text(30, 10, this.p1Score, scoreConfig);
+        this.scoreLeft = this.add.text(30, 10, this.count, scoreConfig);
 
         //GAME OVER flag
         this.gameOver = false;
-        /*
-         //60-second play clock
-         scoreConfig.fixedWidth = 0;
-         this.clock = this.time.delayedCall(game.settings.gameTimer, () => {
-             this.add.text(game.config.width/2, game.config.height/2, 'GAME OVER', scoreConfig).setOrigin(0.5);
-             this.add.text(game.config.width/2, game.config.height/2 + 64, 'Press (R) to Restart or ← to Menu', scoreConfig).setOrigin(0.5);
-             this.gameOver = true;
-         }, null, this);
-*/  
+    
+        this.clock = this.time.delayedCall(game.settings.gameTimer, () => {
+            this.add.text(game.config.width/2, game.config.height/2, 'GAME OVER', scoreConfig).setOrigin(0.5);
+            //this.add.text(game.config.width/2, game.config.height/2, 'High Score: ' + highscore, scoreConfig).setOrigin(0.5);
+            this.add.text(game.config.width/2, game.config.height/2 + 64, 'Press (R) to Restart or ← to Menu', scoreConfig).setOrigin(0.5);
+            this.gameOver = true;
+        }, null, this);
+
+
 
     }
 
@@ -80,19 +82,20 @@ class Scene1 extends Phaser.Scene {
         if(this.checkCollision(this.p1, this.fruit1)) {
             this.music = this.sound.play('fruitdrop');
             this.fruit1.reset();
-            this.p1Score++;
+            this.count--;
+            //this.p1Score--;
         }
         if (this.checkCollision(this.p1, this.fruit2)) {
             this.music = this.sound.play('fruitdrop');
             this.fruit2.reset();
-            this.p1Score++;
+            this.count--;
         }
         if (this.checkCollision(this.p1, this.fruit3)) {
             this.music = this.sound.play('fruitdrop');
             this.fruit3.reset();
-            this.p1Score++;
+            this.count--;
         }
-        this.scoreLeft.text = this.p1Score; 
+        this.scoreLeft.text = this.count; 
 
     }
 

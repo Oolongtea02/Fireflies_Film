@@ -25,7 +25,7 @@ class FruitDrop extends Phaser.GameObjects.Sprite {
     //Position reset
     reset() {
         this.y = 0;
-        this.x = Phaser.Math.Between(10, 790);
+        this.x = Phaser.Math.Between(10, 770);
 
     }
 
