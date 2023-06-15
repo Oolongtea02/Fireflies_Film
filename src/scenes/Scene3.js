@@ -38,10 +38,13 @@ class Scene3 extends Phaser.Scene {
 
         this.add.text(400, 100, 'Tap Cooking Pot To Start', subTextConfig).setOrigin(0.5);
 
+        
+
         //const cP = new Food(630, 400, 'cookingPot', this, () => console.log("Girl is pressed"));
         const cN = new Food(630, 300, 'corn', this, () => this.count += 1);
         const gO= new Food(170, 300, 'green', this, () => this.count += 1);
         const bL = new Food(400, 500, 'bowl', this, () => this.count += 1);
+
 
 
 
