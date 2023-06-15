@@ -1,23 +1,13 @@
 class Scene2 extends Phaser.Scene {
-    /**  @type {Phaser.Physics.Arcade.Sprite} */
-    setsuko
-
-    /** @type {Phaser.GameObjects.Text} */
-	fireflyCollectedText
-
-    /** @type {Phaser.Physics.Arcade.Group} */
-	fireflies
-
-	firefliesCollected = 0
-
-
     constructor() {
         super('Scene2');
     }
 
-    init() {
+    firefliesCollected = 0
+
+    /*init() {
         this.firefliesCollected = 0;
-    }
+    } */
 
     preload() {
         this.load.image('fireflies', './assets/fireflies_bg.png');
@@ -114,12 +104,13 @@ class Scene2 extends Phaser.Scene {
             this.firefly3.update();
             this.firefly4.update();
         }
+        this.scoreLeft.text = this.firefliesCollected;
 
-        if(this.fireFliesCollected == 25)
+        if(this.firefliesCollected >= 25)
         {
             this.gameOver = true;
-            this.fireFliesCollected = 25;
-            const startScene1 = new Button(630, 510, 'Scene 3', this, () => this.scene.start('instruction3Scene'));
+            this.firefliesCollected = 25;
+            const startScene1 = new Button(630, 400, 'Scene 3', this, () => this.scene.start('instruction3Scene'));
         }
 
         if(this.onFireflyClicked(this.click, this.firefly1)) {

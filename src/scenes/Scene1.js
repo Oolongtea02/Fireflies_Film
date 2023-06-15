@@ -26,7 +26,7 @@ class Scene1 extends Phaser.Scene {
             gameTimer: 60000
         }
 
-        const nextButton = new Button(450, 350, 'Next Scene', this, () => this.scene.start('instruction2Scene'));
+        //const nextButton = new Button(450, 350, 'Next Scene', this, () => this.scene.start('instruction2Scene'));
 
         
         //Keyboard Mechanics
