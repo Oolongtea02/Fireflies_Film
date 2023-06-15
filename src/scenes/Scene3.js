@@ -38,15 +38,58 @@ class Scene3 extends Phaser.Scene {
 
         this.add.text(400, 100, 'Tap Cooking Pot To Start', subTextConfig).setOrigin(0.5);
 
-        const cN = new Food(630, 300, 'corn', this, () => this.count += 1);
-        const gO= new Food(170, 300, 'green', this, () => this.count += 1);
+        game.settings = {
+            gameTimer: 60000
+        }
+
+        //Initialize score
+        this.countScore = 0;
+
+        //Display score
+        let scoreConfig = {
+            fontFamily: 'Courier',
+            fontSize: '28px',
+            backgroundColor: '#ff9933',
+            color: '#FFFFFF',
+            align: 'center',
+            padding: {
+                top: 5,
+                bottom: 5,
+            },
+            fixedWidth: 100
+        }
+        this.scoreLeft = this.add.text(borderUISize + borderPadding, borderUISize + borderPadding*2, this.countScore, scoreConfig);
+        this.text = this.add.text(300,200);
+
+
+        this.gameOver = false;
+        this.clock = this.time.delayedCall(game.settings.gameTimer, () => {
+            this.gameOver = true;
+
+        }, null, this);
+
+        const cN = new Food(630, 300, 'corn', this, () => this.count += 2);
+        const gO= new Food(170, 300, 'green', this, () => this.count += 2);
         const bL = new Food(400, 500, 'bowl', this, () => this.count += 1);
 
-        cP.on('pointerdown', () => this.sound.play('cook', {loop: false, volume: 0.1}));
+        this.sound.play('cook', {loop: false, volume: 0.1});
     }
 
     update(){
-        console.log(this.count);
+        this.scoreLeft.text = this.count; 
+
+        if(this.gameOver) {
+            this.text.setText("Despite making food for her, \n Setsuko passes away due to malnourishment...");
+            this.sound.get('end').stop();
+            const restartButton = new Button(450, 300, 'Click Here to Restart', this, () => this.scene.start('menuScene'));
+        }
+
+        if(this.count >= 50) {
+            this.gameOver = true;
+            this.count = 50;
+            this.sound.get('end').stop();
+            const restartButton = new Button(630, 510, 'Back to Menu', this, () => this.scene.start('menuScene'));
+        }
     }
 
    

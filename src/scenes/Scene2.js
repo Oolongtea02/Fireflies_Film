@@ -34,13 +34,11 @@ class Scene2 extends Phaser.Scene {
         
         this.sound.play('grave', {loop: false, volume: 0.1});
 
-        const startScene1 = new Button(630, 510, 'Scene 3', this, () => this.scene.start('instruction3Scene'));
 
-
-        this.firefly1 = new Firefly(this, 500, 300, 'firefly').setScale(.2).setOrigin(0.5, 0)
-        this.firefly2 = new Firefly(this, 550, 400, 'firefly').setScale(.2).setOrigin(0.5, 0)
-        this.firefly3 = new Firefly(this, 450, 200, 'firefly').setScale(.2).setOrigin(0.5, 0)
-        this.firefly4 = new Firefly(this, 400, 100, 'firefly').setScale(.2).setOrigin(0.5, 0)
+        this.firefly1 = new Firefly(this, 500, 300, 'firefly', this, () => this.firefliesCollected += 1).setScale(.2).setOrigin(0.5, 0)
+        this.firefly2 = new Firefly(this, 550, 400, 'firefly', this, () => this.firefliesCollected += 1).setScale(.2).setOrigin(0.5, 0)
+        this.firefly3 = new Firefly(this, 450, 200, 'firefly', this, () => this.firefliesCollected += 1).setScale(.2).setOrigin(0.5, 0)
+        this.firefly4 = new Firefly(this, 400, 100, 'firefly', this, () => this.firefliesCollected += 1).setScale(.2).setOrigin(0.5, 0)
 
         this.firefly1.setVisible(true);
         this.firefly2.setVisible(true);
@@ -50,9 +48,10 @@ class Scene2 extends Phaser.Scene {
         this.mouse = this.input;
 
         this.click = this.input.on('firefly', this.onFireflyClicked);
-        
-        //this.physics.add.overlap(this.setsuko, this.fireflies, this.handleCollectFirefly, undefined, this);
 
+        const startScene1 = new Button(630, 510, 'Scene 3', this, () => this.scene.start('instruction3Scene'));
+
+    
         //this.click = new Button(0, 0, )
         this.firefliesCollectedText = this.add.text(140, 10, 'Fireflies', { color: '#ffffff', fontSize: 24 })
 			.setScrollFactor(0)
@@ -90,15 +89,7 @@ class Scene2 extends Phaser.Scene {
         this.scoreLeft = this.add.text(borderUISize + borderPadding, borderUISize + borderPadding*2, this.p1Score, scoreConfig);
 
         this.gameOver = false;
-        /*this.firefliesCollected = 0;
-        this.clock = this.time.delayedCall(game.settings.gameTimer, () => {
-            this.clock--;
-            this.add.text(game.config.width/2, game.config.height/2, 'Dawn is approaching', this.firefliesCollected).setOrigin(0.5);
-            this.add.text(game.config.width/2, game.config.height/2 + 64, 'Fireflies have left the scene', this.firefliesCollected).setOrigin(0.5);
-            this.gameOver = true;
-        }, null, this); */
-        this.timerOver = false;
-
+      
         //borrowed from Nathan Altice 'Scenesters' example
         let timeCount = 60
         let timerText = this.add.text(64, 96, `Time: ${timeCount}`)
@@ -123,6 +114,14 @@ class Scene2 extends Phaser.Scene {
             this.firefly3.update();
             this.firefly4.update();
         }
+
+        if(this.fireFliesCollected == 25)
+        {
+            this.gameOver = true;
+            this.fireFliesCollected = 25;
+            const startScene1 = new Button(630, 510, 'Scene 3', this, () => this.scene.start('instruction3Scene'));
+        }
+
         if(this.onFireflyClicked(this.click, this.firefly1)) {
             this.firefly1.setVisible(false);
             this.firefly1.reset();

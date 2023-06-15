@@ -31,7 +31,7 @@ class Instructions3 extends Phaser.Scene {
           this.sound.get('grave').stop();
 
           this.add.text(400, 90, 'Scene 3 Instructions', explainConfig).setOrigin(0.5);
-          this.add.text(400, 200, 'Click on the ingredients that appear \n to make food', subTextConfig).setOrigin(0.5);
+          this.add.text(400, 200, 'Click on the ingredients/pot that appear at least 50 times \n to make food', subTextConfig).setOrigin(0.5);
           this.add.text(400, 300, 'You do not want to make Setsuko starve!', subTextConfig).setOrigin(0.5);
           this.add.text(400, 350, 'Dawn is approaching', subTextConfig).setOrigin(0.5);
 
