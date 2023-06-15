@@ -5,7 +5,6 @@ class Scene1 extends Phaser.Scene {
 
     count = 20; 
 
-    //xCoord = 0;
     preload() {
         this.load.audio('happyAudio', './assets/music/firstaudio.mp3');
         this.load.image('background1', './assets/scene1background.jpeg');
@@ -24,11 +23,9 @@ class Scene1 extends Phaser.Scene {
         this.p1 = new Girl(this, 300, 400, 'girl').setOrigin(0, 0);
 
         game.settings = {
-            gameTimer: 45000
+            gameTimer: 60000
         }
-        const startScene = new Button(630, 510, 'Next', this, () => this.scene.start('instruction2Scene'));
         
-
         //Keyboard Mechanics
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
         keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
@@ -54,20 +51,23 @@ class Scene1 extends Phaser.Scene {
             fixedWidth: 100
         }
         this.scoreLeft = this.add.text(30, 10, this.count, scoreConfig);
+        this.text = this.add.text(300,200);
+
 
         //GAME OVER flag
         this.gameOver = false;
-    
         this.clock = this.time.delayedCall(game.settings.gameTimer, () => {
             this.gameOver = true;
+
         }, null, this);
-
-
-
     }
 
     update() {
 
+        if(this.gameOver == true || this.count == 0){
+            this.resultOfGame();
+        }
+        
         if(!this.gameOver){
             this.p1.update();
             this.fruit1.update();
@@ -105,6 +105,20 @@ class Scene1 extends Phaser.Scene {
                 return true;
         } else {
             return false;
+        }
+    }
+
+    resultOfGame(){
+        if(this.gameOver){
+            this.text.setText("Setsuko is left hungry. You failed.");
+            const restartButton = new Button(450, 300, 'Click Here to Restart', this, () => this.scene.start('Scene1'));
+            const nextButton = new Button(450, 350, 'Next Scene', this, () => this.scene.start('instruction2Scene'));
+        }
+        if(this.count == 0){
+            this.gameOver = true;
+            this.text.setText("Good job! You fed Setsuko!");
+            const restartButton = new Button(450, 300, 'Click Here to Play Again', this, () => this.scene.start('Scene1'));
+            const nextButton = new Button(450, 350, 'Next Scene', this, () => this.scene.start('instruction2Scene'));
         }
     }
   
