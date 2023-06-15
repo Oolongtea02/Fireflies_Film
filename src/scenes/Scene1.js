@@ -25,6 +25,9 @@ class Scene1 extends Phaser.Scene {
         game.settings = {
             gameTimer: 60000
         }
+
+        const nextButton = new Button(450, 350, 'Next Scene', this, () => this.scene.start('instruction2Scene'));
+
         
         //Keyboard Mechanics
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
@@ -111,13 +114,15 @@ class Scene1 extends Phaser.Scene {
     resultOfGame(){
         if(this.gameOver){
             this.text.setText("Setsuko is left hungry. You failed.");
-            const restartButton = new Button(450, 300, 'Click Here to Restart', this, () => this.scene.start('Scene1'));
+            this.sound.get('happyAudio').stop();
+            const restartButton = new Button(450, 300, 'Click Here to Restart', this, () => this.scene.restart("Scene1"));
             const nextButton = new Button(450, 350, 'Next Scene', this, () => this.scene.start('instruction2Scene'));
         }
         if(this.count == 0){
             this.gameOver = true;
             this.text.setText("Good job! You fed Setsuko!");
-            const restartButton = new Button(450, 300, 'Click Here to Play Again', this, () => this.scene.start('Scene1'));
+            this.sound.get('happyAudio').stop();
+            const restartButton = new Button(450, 300, 'Click Here to Play Again', this, () => this.scene.restart("Scene1"));
             const nextButton = new Button(450, 350, 'Next Scene', this, () => this.scene.start('instruction2Scene'));
         }
     }

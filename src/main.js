@@ -5,13 +5,17 @@ Pair project: Samuel Zhang, Tristyn Lai
 Phaser Components Used: vertical/horizontal physics movement, particle effects, timers, button point and click usage, and text objects(score).
 
 Sources: assets from Pinterest, music from Pixabay
+setsuko: searched from google images
 firefly: https://in.pinterest.com/pin/548172585905954462/
+pot: searched from google images
 scene1 sfx: https://pixabay.com/ru/sound-effects/apple-eating-36127/ 
+scene1 soundtrack: https://pixabay.com/music/cartoons-cute-creatures-150622/ by geoff harvey
 scene2 soundtrack: https://pixabay.com/ru/music/fireflies-120609/ by magiksolo
 scene3 soundtrack: https://www.youtube.com/watch?v=whk7aEVgmBg 
 
 
 Tilt: We tried to make each of our scenes have a different genre of play in order to support the unique experience of each scene as depicted in Grave of the Fireflies.
+For example, scene 1 has a dropping tetris style of movement, scene 2 has a left to right movement, and scene 3 has a clicker heroes type gameplay with repetitive clicking.
 */
 
 let config = {
