@@ -15,6 +15,9 @@ class Credits extends Phaser.Scene {
             },
         });
 
+        const menuButton = new Button(525, 420, 'Back to Menu', this, () => this.scene.start('menuScene'));
+
+
     }
     
 }
